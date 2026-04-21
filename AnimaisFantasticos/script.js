@@ -145,7 +145,7 @@ titulo.appendChild(novoh2);
 
 const menuClone = menu.cloneNode(true);
 const copy = document.querySelector('.copy'); 
-copy.appendChild(menuClone);
+//copy.appendChild(menuClone);
 
 const faq = document.querySelector('.faq');
 
@@ -153,4 +153,27 @@ const dtfaq = faq.querySelector('dt');
 const ddfaq = dtfaq.nextElementSibling;
 
 const animais = document.querySelector('.animais');
-faq.innerHTML = animais.innerHTML;
+//faq.innerHTML = animais.innerHTML;
+
+function initTabNav() {
+    const tabMenu = document.querySelectorAll('.js-tabmenu li');
+    const tabContent = document.querySelectorAll('.js-tabcontent section');
+    if (tabMenu.length && tabContent.length) { 
+        tabContent[0].classList.add('active');
+
+        function activeTab(index) {
+            tabContent[index].classList.add('active');
+            tabContent.forEach(content => {
+                if (content != tabContent[index])
+                    content.classList.remove('active');
+            })
+        }
+
+        tabMenu.forEach((itemMenu, index) => {
+            itemMenu.addEventListener('click', () => {
+                activeTab(index);
+            })
+        });
+    }
+}
+initTabNav();
