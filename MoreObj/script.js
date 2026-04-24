@@ -230,17 +230,57 @@ const lista = document.querySelectorAll('li');
 
 // Retorne a soma total de caracteres dos
 // parágrafos acima utilizando reduce
-const sections = document.querySelectorAll('section');
-const lobo = sections[sections.length - 1].innerText;
-
-const textoArray;
+const parag = document.querySelectorAll('p');
+const totalChar = Array.prototype.reduce.call(parag, (acum, item) => {
+    return acum + item.innerText.length;
+}, 0);
+console.log(totalChar);
 
 
 // Crie uma função que retorne novos elementos
 // html, com os seguintes parâmetros
 // tag, classe e conteudo.
+function criarElemento(tag, classe, conteudo) {
+    const elemento = document.createElement(tag);
+    classe ? elemento.classList.add(classe) : null;
+    conteudo ? elemento.innerHTML = conteudo : null;
+    return elemento
+}
 
+const h1Titulo = criarElemento.bind(null, 'h1', 'titulo');
 
-// Crie uma nova função utilizando a anterior como base
-// essa nova função deverá sempre criar h1 com a
-// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+const carrao = {
+    marca: 'Marca',
+    rodas: 4,
+    acelerar() {
+        return this.marca + ' acelerou';
+    },
+    buzinar() {
+        return this.marca + ' buzinou';
+    }
+}
+
+const ford = Object.create(carrao);
+ford.marca = 'Fordk';
+
+function tipoDado(dado) {
+    return Object.prototype.toString.call(dado);
+}
+
+const quadrado = {}
+Object.defineProperties(quadrado, {
+    lados: {
+        value: 4,
+        enumerable: true,
+    }
+});
+
+const configuracao = {
+    width: 800,
+    height: 600,
+    background: '#333'
+};
+Object.freeze(configuracao);
+
+console.log(Object.getOwnPropertyNames(String.prototype));
+console.log(Object.getOwnPropertyNames(Array.prototype));
