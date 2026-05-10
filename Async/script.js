@@ -1,7 +1,7 @@
 const inputCep = document.getElementById('inCep');
 const btnCep = document.getElementById('btnCep');
 const resCep = document.querySelector('.resultadoCep');
-btnCep.addEventListener('click', handleClick);
+if (btnCep) btnCep.addEventListener('click', handleClick);
 
 function handleClick(event) {
     event.preventDefault();
@@ -25,14 +25,14 @@ function fetchBitcoin() {
     fetch("https://blockchain.info/ticker")
         .then(response => response.json())
         .then(bitJson => {
-            console.log(bitJson.BRL.buy);
             btcDisplay.innerText = ('R$ ' + bitJson.BRL.buy).replace('.', ',');
         });
 }
+if (btcDisplay) setInterval(fetchBitcoin, 10000);
 
 const piada = document.querySelector('.piada');
 const proxPiada = document.querySelector('.proxPiada');
-proxPiada.addEventListener('click', fetchStuff);
+if (proxPiada) proxPiada.addEventListener('click', fetchStuff);
 
 async function fetchStuff() {
     const randPokemon = Math.round(Math.random() * 1330);
@@ -53,4 +53,4 @@ async function fetchStuff() {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
     }
 }
-fetchStuff();
+if (proxPiada) fetchStuff();
