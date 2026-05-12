@@ -4,17 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <title>Async</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-    </ul>
-    <div class="content">
-        <h1>Home</h1>
-        <p>Tem de tudo aqui sabe?</p>
-    </div>
     <style>
         label {
             display: block;
@@ -38,22 +31,28 @@
             font-style: italic;
         }
     </style>
-    <form id="buscaCep">
-        <label for="cep">Digite seu CEP:</label>
-        <input type="text" name="cep" id="inCep"/>
-        <input type="button" value="Consultar" id="btnCep">
-    </form>
-    <div class="resultadoCep">
-        
-    </div>
-    <div">
-        <h2>THIS JUST IN! Preço BTC:</h2>
-        <p class="btc">aguardando valor....</p>
-    </div>
-    <div>
-        <h3>Aproveite e veja nossas piadas:</h3>
-        <p class="piada">aguardando humor...</p>
-        <button class="proxPiada">Proxima</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+    </ul>
+    <div class="content">
+        <h1>Home</h1>
+        <p>Tem de tudo aqui sabe?</p>
+        <form id="buscaCep">
+            <label for="cep">Digite seu CEP:</label>
+            <input type="text" name="cep" id="inCep"/>
+            <input type="button" value="Consultar" id="btnCep">
+        </form>
+        <div class="resultadoCep"></div>
+        <div>
+            <h2>THIS JUST IN! Preço BTC:</h2>
+            <p class="btc">aguardando valor....</p>
+        </div>
+        <div>
+            <h3>Aproveite e veja nossas piadas:</h3>
+            <p class="piada">aguardando humor...</p>
+            <button class="proxPiada">Proxima</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

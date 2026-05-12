@@ -58,3 +58,42 @@ async function fetchStuff() {
     }
 }
 if (proxPiada) fetchStuff();
+
+const links = document.querySelectorAll('a');
+links.forEach(link => {
+    link.addEventListener('click', handleClick);
+});
+
+window.addEventListener('popstate', () => {
+    fetchPage(window.location.href);
+})
+
+function handleClick(event) {
+    event.preventDefault();
+    fetchPage(event.target.href);
+    window.history.pushState(null, null, event.target.href);
+}
+
+async function fetchPage(url) {
+    document.querySelector('.content').innerHTML = 'Carregando...'
+    const pageResponse = await fetch(url);
+    const pageText = await pageResponse.text();
+
+    replaceContent(pageText);
+}
+
+function replaceContent(newText) {
+    const newHTML = document.createElement('div');
+    newHTML.innerHTML = newText;
+
+    const oldContent = document.querySelector('.content');
+    const newContent = newHTML.querySelector('.content');
+
+    const animCascata = newContent.querySelectorAll('.content > *');
+    animCascata.forEach((item, index) => {
+        item.style.setProperty('--i', index);
+    });
+
+    oldContent.innerHTML = newContent.innerHTML;
+    document.title = newHTML.querySelector('title').innerText;
+}
