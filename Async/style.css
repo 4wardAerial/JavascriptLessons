@@ -1,7 +1,6 @@
 .content > * {
     opacity: 0;
     animation: entrar .3s forwards;
-    animation-delay: calc(var(--i, 0) * 0.1s);
 }
 
 @keyframes entrar {
@@ -12,4 +11,20 @@
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
+}
+
+[data-btn="noti"] {
+    background: rgb(255, 217, 186);
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 15rem;
+    height: 5rem;
+    border-radius: 10px;
+    border-width: 4px;
+    cursor: pointer;
+}
+
+[data-btn="noti"].active {
+    background: rgb(71, 53, 29);
+    color: white;
 }
